@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root{
+--Moderateblue: hsl(238, 40%, 52%);
+--SoftRed: hsl(358, 79%, 66%);
+--Lightgrayishblue: hsl(239, 57%, 85%);
+--Palered: hsl(357, 100%, 86%);
+--Darkblue: hsl(212, 24%, 26%);
+--GrayishBlue: hsl(211, 10%, 45%);
+--Lightgray: hsl(223, 19%, 93%);
+--Verylightgray: hsl(228, 33%, 97%);
+--White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 5px;
+    list-style: none;
+}
+
+body{
+    background-color: var(--Darkblue);
+    font-family: 'Inter', sans-serif;
+}
+
+.inactive{
+    display: none;
+}
+
+/* Navbar */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-right,.navbar-right-menu ul,.navbar-left,.navbar-right-more{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right-menu ul li:nth-child(5){
+    position: relative;
+    right: 28px;
+    top: -15px;
+    background-color: var(--Verylightgray);
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.navbar-right-menu ul li:nth-child(1){
+    display: flex;
+    background-color: var(--Verylightgray);
+    border-radius: 30px;
+    align-items: center;
+}
+
+.navbar-left input{
+    background-color: var(--GrayishBlue);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 15rem;
+}
+
+.navbar-left ::placeholder{
+    color: var(--White);
+}
+
+.navbar-right-more span{
+    color: var(--White);
+}
+
+/* User */
+main{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.7fr;
+}
+
+.user{
+    height: min-content;
+}
+
+.sections{
+    background-color: var(--GrayishBlue);
+    border-radius: 15px;
+    color: var(--White);
+}
+
+.commentSection{
+    display: grid;
+    grid-template-rows:repeat(auto-fit,minmax(0.5fr,1fr));
+    grid-auto-rows: min-content;
+}
+
+.userinfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.userinfo article{
+    text-align: center;
+}
+
+.userinfo div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userinfo div span:nth-child(1){
+    font-size: 25px;
+}
+
+.userinfo div span:nth-child(2){
+    color: var(--Lightgrayishblue);
+}
+
+.followsection{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    border: 1px solid transparent;
+    border-top-color: var(--Darkblue);
+    border-bottom-color: var(--Darkblue);
+}
+
+.Following,.Followers {
+    text-align: center;
+}
+
+.Following p,.Followers p{
+    color: var(--Lightgrayishblue);
+}
+
+.Following {
+    border: 1px solid transparent;
+    border-right-color: var(--Darkblue);
+}
+
+.user div:nth-child(3){
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+}
+
+.search input{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--Lightgrayishblue);
+}
+
+.search ::placeholder{
+    color: var(--GrayishBlue);
+    font-size: 17px;
+    padding: 15px;
+}
+
+.searchitems{
+    display: flex ;
+    justify-content: center;
+}
+
+.searchitems div{
+    display: flex ;
+    align-items: center;
+    border: 1px solid var(--Lightgrayishblue);
+    border-radius: 15px;
+}
+
+.searchitems div img{
+    box-shadow: 2px 2px 15px var(--White);
+    border-radius: 100%;
+}
+
+.commentsInt,.commentReply,.inputReply,.reply-delete{
+    display: flex;
+}
+
+.tweet{
+    background-color: var(--Darkblue);
+    border-radius: 15px;
+    border: 2px solid var(--White);
+    width: 100%;
+}
+
+.commentUserinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commentUserinfo div:nth-child(1){
+    display: flex;
+    align-items: center;
+}
+
+.plus-minus{
+    text-align: center;
+    border: 2px solid var(--White);
+    border-radius: 15px;
+    height: min-content;
+    background-color: var(--Darkblue);
+}
+
+.commentUserinfo :nth-child(2){
+    color: black;
+    font-weight: bold;
+}
+
+.Reply{
+    display: flex;
+    align-items: center;
+}
+
+.Reply :hover{
+    cursor: pointer;
+}
+
+.commentReplySection{
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+}
+
+.inputReply button{
+    background-color: var(--Moderateblue);
+    color: var(--White);
+    border: 0px;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 40px;
+    width: 80px;
+}
+
+.inputReply button:hover{
+    cursor: pointer;
+}
+
+.juliusomo:hover{
+    .delete{
+        display: flex;
+    }
+
+    .delete img{
+        object-fit: contain;
+    }
+
+    .delete span{
+        color: var(--SoftRed);
+    }
+
+    .delete:hover{
+        cursor: pointer;
+    }
+}
+
+.you{
+    background-color: var(--Moderateblue);
+    width: 3.5rem;
+    height: 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+textarea{
+    resize: none;
+    border: 2px solid var(--Lightgray);
+    border-radius:5px;
+    width: 100%;
+    background-color: var(--Darkblue);
+}
+
+textarea::placeholder{
+    color: var(--White);
+}
+
+.deleteContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(143, 141, 141,0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.deleteSection{
+    width: 300px;
+    height: fit-content;
+    background-color: var(--White);
+    color: var(--GrayishBlue);
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+.deleteSection h3{
+    color: black;
+    font-weight:bold ;
+}
+
+.deleteSection button:nth-child(1){
+    background-color: var(--Darkblue);
+    border-radius: 8px;
+    width: 40%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.deleteSection button:nth-child(2){
+    background-color: var(--SoftRed);
+    border-radius: 8px;
+    width: 40%;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Nav Recomendations */
+.recomends{
+    height: min-content;
+}
+
+.nav-recomends{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recomendations{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recomends :nth-child(5){
+    color:  blue;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+h5,.recomendations span{
+    color: var(--Lightgrayishblue);
+}
+
+h6{
+    font-size: 15px;
+}
+
+.border{
+    border-bottom: 2px solid var(--Lightgray);
+}
+
