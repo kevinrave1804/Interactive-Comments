@@ -1,16 +1,16 @@
-const userinfo=document.querySelector(".userinfo")
-const navbarmore=document.querySelector(".navbar-right-more")
-const search=document.querySelector(".search")
-const comments=document.querySelector(".comments")
-const cargar=document.querySelector("body").onload=function() {
-    const p1 =data()
+const userinfo = document.querySelector(".userinfo")
+const navbarmore = document.querySelector(".navbar-right-more")
+const search = document.querySelector(".search")
+const comments = document.querySelector(".comments")
+const cargar = document.querySelector("body").onload = function () {
+    const p1 = data()
 };
 
-function data(){
+function data() {
     fetch("./data.json")
-    .then((res)=>res.json())
-    .then((data)=>{
-        userinfo.innerHTML=`
+        .then((res) => res.json())
+        .then((data) => {
+            userinfo.innerHTML = `
             <article>
                 <img src="${data.currentUser.image.png}" alt="Hola">
             </article>          
@@ -20,19 +20,19 @@ function data(){
             </div>
             <p>💥Penting gak Penting yang penting Posting💥</p>
             `
-        navbarmore.innerHTML=`
+            navbarmore.innerHTML = `
             <img src="${data.currentUser.image.png}" alt="">
             <span>${data.currentUser.username}</span>
             <img src="./images/teclado-de-marcacion.png" alt="more">
             `
-        search.innerHTML=`
+            search.innerHTML = `
             <article>
                 <img src="${data.currentUser.image.png}" alt="user">
             </article>
             <input type="text" placeholder="What's happening?">
         `
-        data.comments.forEach(element => {
-            comments.innerHTML+=`
+            data.comments.forEach(element => {
+                comments.innerHTML += `
                 <div class="ContentComment ${element.user.username}">
                     <div class="commentsInt">
                         <div class="plus-minus">
@@ -71,10 +71,10 @@ function data(){
                     <div></div>
                 </div>
             `
-            const commentsR=document.querySelector(`.${element.user.username}`)
+                const commentsR = document.querySelector(`.${element.user.username}`)
 
-            element.replies.map(reply=>{
-                commentsR.innerHTML+=`
+                element.replies.map(reply => {
+                    commentsR.innerHTML += `
                 <div class="commentReplySection ${reply.user.username}">
                     <div class="commentReply">
                         <div class="plus-minus">
@@ -121,16 +121,16 @@ function data(){
                 </div>
                 <div></div>
                 `
+                })
             })
         })
-    })
-    
+
 }
 
-function replyComment(data,img){
-    const commentContent=document.querySelector(`.${data}`)
-    const replyInput=commentContent.lastElementChild
-        replyInput.innerHTML=`
+function replyComment(data, img) {
+    const commentContent = document.querySelector(`.${data}`)
+    const replyInput = commentContent.lastElementChild
+    replyInput.innerHTML = `
         <div class="inputReply">
             <article>
                 <img src="${img}" alt="imagen${data}">
@@ -139,8 +139,8 @@ function replyComment(data,img){
             <button onclick="addComment('${data}')">REPLY</button>
         </div >
         `
-    if(data==='juliusomo'){
-        replyInput.innerHTML=`
+    if (data === 'juliusomo') {
+        replyInput.innerHTML = `
         <div class="inputReply">
             <article>
                 <img src="${img}" alt="imagen${data}">
@@ -152,13 +152,9 @@ function replyComment(data,img){
     }
 }
 
-function Userecognition(user){
-
-}
-
-function DeleteAction(user){
-    const userdiv=document.querySelector(`.${user}`)
-    userdiv.innerHTML+=`
+function DeleteAction(user) {
+    const userdiv = document.querySelector(`.${user}`)
+    userdiv.innerHTML += `
     <div class="deleteContainer">
         <div class="deleteSection">    
             <h3>Delete comment</h3>
@@ -172,24 +168,24 @@ function DeleteAction(user){
     `
 }
 
-function cancelButton(){
-    const cancel=document.querySelector(".deleteContainer")
+function cancelButton() {
+    const cancel = document.querySelector(".deleteContainer")
     cancel.remove()
 }
 
-function deleteButton(){
-    const deleteContainer=document.querySelector(".deleteContainer")
-    deleteContainer.parentElement.remove()   
+function deleteButton() {
+    const deleteContainer = document.querySelector(".deleteContainer")
+    deleteContainer.parentElement.remove()
 }
 
-function addComment(tag){
-    const tagUser=document.querySelector(`.${tag}`)
-    const inputUser=document.querySelector(`.text${tag}`)
-    if(!inputUser.value==""){
+function addComment(tag) {
+    const tagUser = document.querySelector(`.${tag}`)
+    const inputUser = document.querySelector(`.text${tag}`)
+    if (!inputUser.value == "") {
         fetch("./data.json")
-        .then((res)=>res.json())
-        .then((data)=>{
-            tagUser.innerHTML+=`
+            .then((res) => res.json())
+            .then((data) => {
+                tagUser.innerHTML += `
             <div class="commentReplySection ${data.currentUser.username}">
                 <div class="commentReply">
                     <div class="plus-minus">
@@ -238,19 +234,19 @@ function addComment(tag){
             </div>
             <div></div>
         `
-        })   
-        inputUser.parentElement.remove() 
+            })
+        inputUser.parentElement.remove()
     }
 }
 
-function editComment(tag){
-    const tagUser=document.querySelector(`.${tag}`)
-    const inputUser=document.querySelector(`.text${tag}`)
-    if(!inputUser.value==""){
+function editComment(tag) {
+    const tagUser = document.querySelector(`.${tag}`)
+    const inputUser = document.querySelector(`.text${tag}`)
+    if (!inputUser.value == "") {
         fetch("./data.json")
-        .then((res)=>res.json())
-        .then((data)=>{
-            tagUser.innerHTML=`
+            .then((res) => res.json())
+            .then((data) => {
+                tagUser.innerHTML = `
             <div class="commentReplySection ${data.currentUser.username}">
                 <div class="commentReply">
                     <div class="plus-minus">
@@ -299,7 +295,7 @@ function editComment(tag){
             </div>
             <div></div>
         `
-        })   
-        inputUser.parentElement.remove() 
+            })
+        inputUser.parentElement.remove()
     }
 }
